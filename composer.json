@@ -1,0 +1,47 @@
+{
+    "name": "nepada/phone-number-input",
+    "type": "library",
+    "license": "BSD-3-Clause",
+    "description": "Phone number form input for Nette forms.",
+    "keywords": ["phone number", "input", "form", "nette"],
+    "support": {
+        "email": "petr@pada.cz",
+        "issues": "https://github.com/nepada/phone-number-input/issues"
+    },
+    "authors": [
+        {
+            "name": "Petr Morávek",
+            "email": "petr@pada.cz"
+        }
+    ],
+    "require": {
+        "php": ">=7.1.0",
+        "brick/phonenumber": "^0.2.0@dev",
+        "nette/utils": "^2.4@dev || ^3.0@dev",
+        "nette/forms": "^2.4.6@dev"
+    },
+    "require-dev": {
+        "nette/tester": "^2.0",
+        "mockery/mockery": "^1.1",
+
+        "nette/bootstrap": "^2.4@dev || ^3.0@dev",
+        "nette/di": "^2.4.6@dev || ^3.0@dev",
+        "nette/http": "^2.4.7@dev || ^3.0@dev"
+    },
+    "autoload": {
+        "psr-4": {
+            "Nepada\\Bridges\\": "src/Bridges/",
+            "Nepada\\PhoneNumberInput\\": "src/PhoneNumberInput/"
+        }
+    },
+    "autoload-dev": {
+        "classmap": [
+            "tests/"
+        ]
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.0-dev"
+        }
+    }
+}
