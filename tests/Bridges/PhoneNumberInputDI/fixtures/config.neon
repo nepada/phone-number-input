@@ -1,0 +1,5 @@
+extensions:
+    - Nepada\Bridges\PhoneNumberInputDI\PhoneNumberInputExtension
+
+di:
+    debugger: false
