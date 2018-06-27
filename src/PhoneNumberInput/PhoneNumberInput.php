@@ -101,7 +101,7 @@ class PhoneNumberInput extends TextInput
         $value = $this->getHttpData(Form::DATA_LINE);
 
         if ($value === '' || $value === Strings::trim($this->translate($this->emptyValue))) {
-            $this->setValue(null);
+            $this->value = null;
             $this->rawValue = $value;
             return;
         }
@@ -109,7 +109,7 @@ class PhoneNumberInput extends TextInput
         try {
             $this->setValue($value);
         } catch (PhoneNumberParseException $exception) {
-            $this->setValue(null);
+            $this->value = null;
             $this->rawValue = $value;
         }
     }

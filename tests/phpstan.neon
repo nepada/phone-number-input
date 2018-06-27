@@ -8,6 +8,7 @@ parameters:
     exceptionRules:
         checkedExceptions:
             - RuntimeException
+            - Brick\PhoneNumber\PhoneNumberException
         ignoredExceptions:
             - LogicException
             - Nette\InvalidStateException
@@ -18,3 +19,4 @@ parameters:
 
     ignoreErrors:
         - '~Call to an undefined method object::__toString\(\)~'
+        - '~Unused @throws Brick\\PhoneNumber\\PhoneNumberParseException annotation~'
