@@ -18,5 +18,4 @@ parameters:
         - %currentWorkingDirectory%/tests/temp/*
 
     ignoreErrors:
-        - '~Call to an undefined method object::__toString\(\)~'
         - '~Unused @throws Brick\\PhoneNumber\\PhoneNumberParseException annotation~'
