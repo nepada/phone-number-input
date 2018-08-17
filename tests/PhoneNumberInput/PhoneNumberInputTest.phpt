@@ -35,13 +35,14 @@ class PhoneNumberInputTest extends TestCase
     public function testRenderedValue(): void
     {
         $form = new Form();
-        $form['phone'] = new PhoneNumberInput('Phone', 'CZ');
+        $phoneInput = new PhoneNumberInput('Phone', 'CZ');
+        $form['phone'] = $phoneInput;
 
-        $form['phone']->setValue('+420212345678');
-        Assert::same('212 345 678', $form['phone']->getControl()->value);
+        $phoneInput->setValue('+420212345678');
+        Assert::same('212 345 678', $phoneInput->getControl()->value);
 
-        $form['phone']->setValue('+12015550123');
-        Assert::same('+1 201-555-0123', $form['phone']->getControl()->value);
+        $phoneInput->setValue('+12015550123');
+        Assert::same('+1 201-555-0123', $phoneInput->getControl()->value);
     }
 
     public function testSetNullValue(): void
@@ -108,16 +109,17 @@ class PhoneNumberInputTest extends TestCase
         $_POST = ['phone' => ''];
 
         $form = new Form();
-        $form['phone'] = new PhoneNumberInput();
+        $phoneInput = new PhoneNumberInput();
+        $form['phone'] = $phoneInput;
         $form->fireEvents();
 
-        Assert::null($form['phone']->getValue());
-        Assert::same(null, $form['phone']->getError());
+        Assert::null($phoneInput->getValue());
+        Assert::same(null, $phoneInput->getError());
         Assert::same(
             '<input type="tel" name="phone" id="frm-phone" data-nette-rules=\''
             . '[{"op":"optional"},{"op":"Nepada\\\\PhoneNumberInput\\\\Validator::validatePhoneNumber","msg":"Please enter a valid phone number."}]'
             . '\'>',
-            (string) $form['phone']->getControl()
+            (string) $phoneInput->getControl()
         );
     }
 
@@ -128,17 +130,18 @@ class PhoneNumberInputTest extends TestCase
         $_POST = ['phone' => '+420'];
 
         $form = new Form();
-        $form['phone'] = new PhoneNumberInput();
-        $form['phone']->setEmptyValue('+420');
+        $phoneInput = new PhoneNumberInput();
+        $form['phone'] = $phoneInput;
+        $phoneInput->setEmptyValue('+420');
         $form->fireEvents();
 
-        Assert::null($form['phone']->getValue());
-        Assert::same(null, $form['phone']->getError());
+        Assert::null($phoneInput->getValue());
+        Assert::same(null, $phoneInput->getError());
         Assert::same(
             '<input type="tel" name="phone" id="frm-phone" data-nette-rules=\''
             . '[{"op":"optional"},{"op":"Nepada\\\\PhoneNumberInput\\\\Validator::validatePhoneNumber","msg":"Please enter a valid phone number."}]'
             . '\' data-nette-empty-value="+420" value="+420">',
-            (string) $form['phone']->getControl()
+            (string) $phoneInput->getControl()
         );
     }
 
@@ -149,17 +152,18 @@ class PhoneNumberInputTest extends TestCase
         $_POST = ['phone' => '+420 212 345 678'];
 
         $form = new Form();
-        $form['phone'] = new PhoneNumberInput();
+        $phoneInput = new PhoneNumberInput();
+        $form['phone'] = $phoneInput;
         $form->fireEvents();
 
-        Assert::type(PhoneNumber::class, $form['phone']->getValue());
-        Assert::same('+420212345678', (string) $form['phone']->getValue());
-        Assert::same(null, $form['phone']->getError());
+        Assert::type(PhoneNumber::class, $phoneInput->getValue());
+        Assert::same('+420212345678', (string) $phoneInput->getValue());
+        Assert::same(null, $phoneInput->getError());
         Assert::same(
             '<input type="tel" name="phone" id="frm-phone" data-nette-rules=\''
             . '[{"op":"optional"},{"op":"Nepada\\\\PhoneNumberInput\\\\Validator::validatePhoneNumber","msg":"Please enter a valid phone number."}]'
             . '\' value="+420 212 345 678">',
-            (string) $form['phone']->getControl()
+            (string) $phoneInput->getControl()
         );
     }
 
@@ -170,17 +174,18 @@ class PhoneNumberInputTest extends TestCase
         $_POST = ['phone' => '123'];
 
         $form = new Form();
-        $form['phone'] = new PhoneNumberInput();
-        $form['phone']->setRequired('true');
+        $phoneInput = new PhoneNumberInput();
+        $form['phone'] = $phoneInput;
+        $phoneInput->setRequired('true');
         $form->fireEvents();
 
-        Assert::null($form['phone']->getValue());
-        Assert::same('Please enter a valid phone number.', $form['phone']->getError());
+        Assert::null($phoneInput->getValue());
+        Assert::same('Please enter a valid phone number.', $phoneInput->getError());
         Assert::same(
             '<input type="tel" name="phone" id="frm-phone" required data-nette-rules=\''
             . '[{"op":":filled","msg":"true"},{"op":"Nepada\\\\PhoneNumberInput\\\\Validator::validatePhoneNumber","msg":"Please enter a valid phone number."}]'
             . '\' value="123">',
-            (string) $form['phone']->getControl()
+            (string) $phoneInput->getControl()
         );
     }
 
