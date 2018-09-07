@@ -86,7 +86,7 @@ class PhoneNumberInput extends TextInput
     }
 
     /**
-     * @param PhoneNumber|null|string $value
+     * @param PhoneNumber|string|null $value
      * @return static
      * @throws PhoneNumberParseException
      */
