@@ -21,7 +21,7 @@
         "nette/forms": "^2.4.6@dev"
     },
     "require-dev": {
-        "nette/tester": "^2.0",
+        "nette/tester": "^2.1",
         "mockery/mockery": "^1.1",
 
         "nette/bootstrap": "^2.4@dev || ^3.0@dev",
