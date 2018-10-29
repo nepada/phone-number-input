@@ -56,7 +56,6 @@ class PhoneNumberInput extends TextInput
      * @internal
      * @param mixed $value
      * @return static
-     * @throws PhoneNumberParseException
      */
     public function setValue($value): self
     {
@@ -88,7 +87,6 @@ class PhoneNumberInput extends TextInput
     /**
      * @param PhoneNumber|string|null $value
      * @return static
-     * @throws PhoneNumberParseException
      */
     public function setDefaultValue($value): self
     {

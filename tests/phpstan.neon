@@ -8,10 +8,6 @@ parameters:
     exceptionRules:
         checkedExceptions:
             - RuntimeException
-            - Brick\PhoneNumber\PhoneNumberException
         ignoredExceptions:
             - LogicException
             - Nette\InvalidStateException
-
-    ignoreErrors:
-        - '~Unused @throws Brick\\PhoneNumber\\PhoneNumberParseException annotation~'
