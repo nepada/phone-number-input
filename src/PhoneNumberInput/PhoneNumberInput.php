@@ -117,4 +117,14 @@ class PhoneNumberInput extends TextInput
         return $this->rawValue !== '' && $this->rawValue !== Strings::trim($this->translate($this->emptyValue));
     }
 
+    public function getControl(): Html
+    {
+        $control = parent::getControl();
+        if ($this->defaultRegionCode !== null) {
+            $control->{'data-default-region-code'} = $this->defaultRegionCode;
+        }
+
+        return $control;
+    }
+
 }

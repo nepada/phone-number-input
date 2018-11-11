@@ -32,17 +32,51 @@ class PhoneNumberInputTest extends TestCase
         Assert::null($input->getDefaultRegionCode());
     }
 
-    public function testRenderedValue(): void
+    public function testRenderingWithDefaultRegionCode(): void
     {
         $form = new Form();
         $phoneInput = new PhoneNumberInput('Phone', 'CZ');
         $form['phone'] = $phoneInput;
 
         $phoneInput->setValue('+420212345678');
-        Assert::same('212 345 678', $phoneInput->getControl()->value);
+        Assert::same(
+            '<input type="tel" name="phone" id="frm-phone" data-nette-rules=\''
+            . '[{"op":"optional"},{"op":"Nepada\\\\PhoneNumberInput\\\\Validator::validatePhoneNumber","msg":"Please enter a valid phone number."}]'
+            . '\' value="212 345 678" data-default-region-code="CZ">',
+            (string) $phoneInput->getControl()
+        );
 
         $phoneInput->setValue('+12015550123');
-        Assert::same('+1 201-555-0123', $phoneInput->getControl()->value);
+        Assert::same(
+            '<input type="tel" name="phone" id="frm-phone" data-nette-rules=\''
+            . '[{"op":"optional"},{"op":"Nepada\\\\PhoneNumberInput\\\\Validator::validatePhoneNumber","msg":"Please enter a valid phone number."}]'
+            . '\' value="+1 201-555-0123" data-default-region-code="CZ">',
+            (string) $phoneInput->getControl()
+        );
+    }
+
+    public function testRenderingWithoutDefaultRegionCode(): void
+    {
+        $form = new Form();
+        $phoneInput = new PhoneNumberInput('Phone');
+        $phoneInput->setRequired(false);
+        $form['phone'] = $phoneInput;
+
+        $phoneInput->setValue('+420212345678');
+        Assert::same(
+            '<input type="tel" name="phone" id="frm-phone" data-nette-rules=\''
+            . '[{"op":"optional"},{"op":"Nepada\\\\PhoneNumberInput\\\\Validator::validatePhoneNumber","msg":"Please enter a valid phone number."}]'
+            . '\' value="+420 212 345 678">',
+            (string) $phoneInput->getControl()
+        );
+
+        $phoneInput->setValue('+12015550123');
+        Assert::same(
+            '<input type="tel" name="phone" id="frm-phone" data-nette-rules=\''
+            . '[{"op":"optional"},{"op":"Nepada\\\\PhoneNumberInput\\\\Validator::validatePhoneNumber","msg":"Please enter a valid phone number."}]'
+            . '\' value="+1 201-555-0123">',
+            (string) $phoneInput->getControl()
+        );
     }
 
     public function testSetNullValue(): void
