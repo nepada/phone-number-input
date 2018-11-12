@@ -69,6 +69,10 @@ class ValidatorTest extends TestCase
                 'value' => PhoneNumber::parse('+420111111111'),
                 'isValid' => true,
             ],
+            [
+                'value' => PhoneNumber::parse('+42012'),
+                'isValid' => false,
+            ],
         ];
     }
 
@@ -119,6 +123,10 @@ class ValidatorTest extends TestCase
             ],
             [
                 'value' => PhoneNumber::parse('+420111111111'),
+                'isValid' => false,
+            ],
+            [
+                'value' => PhoneNumber::parse('+42012'),
                 'isValid' => false,
             ],
         ];
