@@ -7,7 +7,6 @@ use Brick\PhoneNumber\PhoneNumber;
 use Brick\PhoneNumber\PhoneNumberParseException;
 use Nette;
 use Nette\Forms\IControl;
-use libphonenumber\PhoneNumberUtil;
 
 final class Validator
 {
@@ -24,11 +23,7 @@ final class Validator
     public static function validatePhoneNumber(IControl $control): bool
     {
         $value = self::castToPhoneNumber($control->getValue());
-        if (!$value instanceof PhoneNumber) {
-            return false;
-        }
-        $utils = PhoneNumberUtil::getInstance();
-        return $utils->isPossibleNumber($utils->parse((string) $value));
+        return $value instanceof PhoneNumber && $value->isPossibleNumber();
     }
 
     /**
