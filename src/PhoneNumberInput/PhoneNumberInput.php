@@ -19,6 +19,8 @@ class PhoneNumberInput extends TextInput
     public const VALID_STRICT = Validator::class . '::validatePhoneNumberStrict';
     public const REGION = Validator::class . '::validatePhoneNumberRegion';
 
+    private const PHONE_NUMBER_REGEX = '[\s\d()\[\]~/.+-]+';
+
     /** @var string|null */
     private $defaultRegionCode;
 
@@ -33,7 +35,9 @@ class PhoneNumberInput extends TextInput
         $this->setHtmlType('tel');
         $this->setNullable();
         $this->setRequired(false); // BC with Nette 2.4
-        $this->addRule(self::VALID, NetteFormsValidator::$messages[self::VALID] ?? 'Please enter a valid phone number.');
+        $invalidValueErrorMessage = NetteFormsValidator::$messages[self::VALID] ?? 'Please enter a valid phone number.';
+        $this->addRule(Form::PATTERN, $invalidValueErrorMessage, self::PHONE_NUMBER_REGEX);
+        $this->addRule(self::VALID, $invalidValueErrorMessage);
     }
 
     public function getDefaultRegionCode(): ?string
@@ -99,7 +103,7 @@ class PhoneNumberInput extends TextInput
         $value = $this->getHttpData(Form::DATA_LINE);
 
         if ($value === '' || $value === Strings::trim($this->translate($this->emptyValue))) {
-            $this->value = null;
+            $this->value = '';
             $this->rawValue = $value;
             return;
         }
@@ -108,7 +112,7 @@ class PhoneNumberInput extends TextInput
             $this->setValue($value);
             $this->rawValue = $value;
         } catch (PhoneNumberParseException $exception) {
-            $this->value = null;
+            $this->value = '';
             $this->rawValue = $value;
         }
     }
