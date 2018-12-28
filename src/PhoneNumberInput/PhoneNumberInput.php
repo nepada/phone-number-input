@@ -30,7 +30,7 @@ class PhoneNumberInput extends TextInput
     {
         parent::__construct($label);
         $this->defaultRegionCode = $defaultRegionCode;
-        $this->setType('tel');
+        $this->setHtmlType('tel');
         $this->setNullable();
         $this->setRequired(false);
         $this->addRule(self::VALID, NetteFormsValidator::$messages[self::VALID] ?? 'Please enter a valid phone number.');
