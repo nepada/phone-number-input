@@ -178,7 +178,6 @@ class ValidatorTest extends TestCase
         ];
     }
 
-
     /**
      * @param mixed $value
      * @return IControl|MockInterface
