@@ -183,7 +183,7 @@ class PhoneNumberInputTest extends TestCase
     {
         $_SERVER['REQUEST_METHOD'] = 'POST';
         $_FILES = [];
-        $_POST = ['phone' => '+420 212 345 678'];
+        $_POST = ['phone' => '+420 212 34 56 78'];
 
         $form = new Form();
         $phoneInput = new PhoneNumberInput();
@@ -196,7 +196,7 @@ class PhoneNumberInputTest extends TestCase
         Assert::same(
             '<input type="tel" name="phone" id="frm-phone" data-nette-rules=\''
             . '[{"op":"optional"},{"op":"Nepada\\\\PhoneNumberInput\\\\Validator::validatePhoneNumber","msg":"Please enter a valid phone number."}]'
-            . '\' value="+420 212 345 678">',
+            . '\' value="+420 212 34 56 78">',
             (string) $phoneInput->getControl()
         );
     }

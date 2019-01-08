@@ -106,6 +106,7 @@ class PhoneNumberInput extends TextInput
 
         try {
             $this->setValue($value);
+            $this->rawValue = $value;
         } catch (PhoneNumberParseException $exception) {
             $this->value = null;
             $this->rawValue = $value;
