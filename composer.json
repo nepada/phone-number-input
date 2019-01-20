@@ -27,7 +27,8 @@
 
         "nette/bootstrap": "^2.4@dev || ^3.0@dev",
         "nette/di": "^2.4.6@dev || ^3.0@dev",
-        "nette/http": "^2.4.7@dev || ^3.0@dev"
+        "nette/http": "^2.4.7@dev || ^3.0@dev",
+        "xificurk/phpstan-shim": "^0.11"
     },
     "autoload": {
         "psr-4": {

@@ -6,8 +6,12 @@ includes:
 
 parameters:
     exceptionRules:
-        checkedExceptions:
-            - RuntimeException
-        ignoredExceptions:
+        uncheckedExceptions:
             - LogicException
+            - Brick\PhoneNumber\PhoneNumberException
             - Nette\InvalidStateException
+
+    ignoreErrors:
+        -
+            message: '#Parameter \#1 \$value \(Brick\\PhoneNumber\\PhoneNumber\|string\|null\) of method Nepada\\PhoneNumberInput\\PhoneNumberInput::setDefaultValue\(\) should be contravariant with parameter#' # intended
+            path: %currentWorkingDirectory%/src/PhoneNumberInput/PhoneNumberInput.php

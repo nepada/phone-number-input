@@ -17,4 +17,6 @@ parameters:
         - %currentWorkingDirectory%/tests/temp/*
 
     ignoreErrors:
-        - '~Call to an undefined method Nette\\Forms\\Form::addPhoneNumber\(\)~'
+        -
+            message: '#Call to an undefined method Nette\\Forms\\Form::addPhoneNumber\(\)#'
+            path: %currentWorkingDirectory%/tests/Bridges/PhoneNumberInputDI/PhoneNumberInputExtensionTest.phpt

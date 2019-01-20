@@ -122,7 +122,7 @@ class PhoneNumberInput extends TextInput
     {
         $control = parent::getControl();
         if ($this->defaultRegionCode !== null) {
-            $control->{'data-default-region-code'} = $this->defaultRegionCode;
+            $control->data('default-region-code', $this->defaultRegionCode);
         }
 
         return $control;
