@@ -46,10 +46,11 @@
         "dist"
     ],
     "scripts": {
+        "lint": "eslint src/assets build",
+        "test": "npm run lint",
         "clean": "rm -rf ./dist/*",
         "build:cjs": "rollup --config build/rollup.config.cjs.js",
         "build:umd": "rollup --config build/rollup.config.umd.js",
         "build": "npm run clean && npm run build:cjs && npm run build:umd"
-        "lint": "eslint src build"
     }
 }

@@ -9,6 +9,13 @@ env:
 
 jobs:
     include:
+        - name: JS test + Code Standard Checker
+          language: node_js
+          node_js: lts/*
+          install:
+              - travis_retry npm install
+          script:
+              - npm run test
         -   stage: Code Standard Checker
             php: 7.4
             script:
@@ -40,3 +47,4 @@ sudo: false
 cache:
     directories:
         - $HOME/.composer/cache
+        - $HOME/.npm
