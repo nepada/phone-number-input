@@ -27,9 +27,12 @@
         "@babel/cli": "^7.7.7",
         "@babel/core": "^7.7.7",
         "@babel/preset-env": "^7.7.7",
+        "@nepada/eslint-config": "^1.4.0",
         "@rollup/plugin-commonjs": "^11.0.0",
         "@rollup/plugin-json": "^4.0.1",
         "@rollup/plugin-node-resolve": "^6.0.0",
+        "eslint": "^6.8.0",
+        "eslint-plugin-import": "^2.19.1",
         "rollup": "^1.27.14",
         "rollup-plugin-babel": "^4.3.3",
         "rollup-plugin-node-builtins": "^2.1.2",
@@ -47,5 +50,6 @@
         "build:cjs": "rollup --config build/rollup.config.cjs.js",
         "build:umd": "rollup --config build/rollup.config.umd.js",
         "build": "npm run clean && npm run build:cjs && npm run build:umd"
+        "lint": "eslint src build"
     }
 }
