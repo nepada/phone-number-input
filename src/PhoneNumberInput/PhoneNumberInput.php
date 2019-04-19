@@ -32,7 +32,7 @@ class PhoneNumberInput extends TextInput
         $this->defaultRegionCode = $defaultRegionCode;
         $this->setHtmlType('tel');
         $this->setNullable();
-        $this->setRequired(false);
+        $this->setRequired(false); // BC with Nette 2.4
         $this->addRule(self::VALID, NetteFormsValidator::$messages[self::VALID] ?? 'Please enter a valid phone number.');
     }
 

@@ -8,6 +8,7 @@ use Brick\PhoneNumber\PhoneNumberParseException;
 use Nepada\PhoneNumberInput\PhoneNumberInput;
 use NepadaTests\TestCase;
 use Nette\Forms\Form;
+use Nette\Forms\Rules;
 use Tester\Assert;
 
 require_once __DIR__ . '/../bootstrap.php';
@@ -18,6 +19,15 @@ require_once __DIR__ . '/../bootstrap.php';
  */
 class PhoneNumberInputTest extends TestCase
 {
+
+    /** @var bool */
+    private $isNette24 = false;
+
+    protected function setUp(): void
+    {
+        parent::setUp();
+        $this->isNette24 = method_exists(Rules::class, 'isOptional') && method_exists(Rules::class, 'check'); // BC with Nette 2.4
+    }
 
     public function testDefaultRegionCode(): void
     {
@@ -40,17 +50,19 @@ class PhoneNumberInputTest extends TestCase
 
         $phoneInput->setValue('+420212345678');
         Assert::same(
-            '<input type="tel" name="phone" id="frm-phone" data-nette-rules=\''
-            . '[{"op":"optional"},{"op":"Nepada\\\\PhoneNumberInput\\\\Validator::validatePhoneNumber","msg":"Please enter a valid phone number."}]'
-            . '\' value="212 345 678" data-default-region-code="CZ">',
+            '<input type="tel" name="phone" id="frm-phone" data-nette-rules=\'['
+            . ($this->isNette24 ? '{"op":"optional"},' : '')
+            . '{"op":"Nepada\\\\PhoneNumberInput\\\\Validator::validatePhoneNumber","msg":"Please enter a valid phone number."}'
+            . ']\' value="212 345 678" data-default-region-code="CZ">',
             (string) $phoneInput->getControl()
         );
 
         $phoneInput->setValue('+12015550123');
         Assert::same(
-            '<input type="tel" name="phone" id="frm-phone" data-nette-rules=\''
-            . '[{"op":"optional"},{"op":"Nepada\\\\PhoneNumberInput\\\\Validator::validatePhoneNumber","msg":"Please enter a valid phone number."}]'
-            . '\' value="+1 201-555-0123" data-default-region-code="CZ">',
+            '<input type="tel" name="phone" id="frm-phone" data-nette-rules=\'['
+            . ($this->isNette24 ? '{"op":"optional"},' : '')
+            . '{"op":"Nepada\\\\PhoneNumberInput\\\\Validator::validatePhoneNumber","msg":"Please enter a valid phone number."}'
+            . ']\' value="+1 201-555-0123" data-default-region-code="CZ">',
             (string) $phoneInput->getControl()
         );
     }
@@ -64,17 +76,19 @@ class PhoneNumberInputTest extends TestCase
 
         $phoneInput->setValue('+420212345678');
         Assert::same(
-            '<input type="tel" name="phone" id="frm-phone" data-nette-rules=\''
-            . '[{"op":"optional"},{"op":"Nepada\\\\PhoneNumberInput\\\\Validator::validatePhoneNumber","msg":"Please enter a valid phone number."}]'
-            . '\' value="+420 212 345 678">',
+            '<input type="tel" name="phone" id="frm-phone" data-nette-rules=\'['
+            . ($this->isNette24 ? '{"op":"optional"},' : '')
+            . '{"op":"Nepada\\\\PhoneNumberInput\\\\Validator::validatePhoneNumber","msg":"Please enter a valid phone number."}'
+            . ']\' value="+420 212 345 678">',
             (string) $phoneInput->getControl()
         );
 
         $phoneInput->setValue('+12015550123');
         Assert::same(
-            '<input type="tel" name="phone" id="frm-phone" data-nette-rules=\''
-            . '[{"op":"optional"},{"op":"Nepada\\\\PhoneNumberInput\\\\Validator::validatePhoneNumber","msg":"Please enter a valid phone number."}]'
-            . '\' value="+1 201-555-0123">',
+            '<input type="tel" name="phone" id="frm-phone" data-nette-rules=\'['
+            . ($this->isNette24 ? '{"op":"optional"},' : '')
+            . '{"op":"Nepada\\\\PhoneNumberInput\\\\Validator::validatePhoneNumber","msg":"Please enter a valid phone number."}'
+            . ']\' value="+1 201-555-0123">',
             (string) $phoneInput->getControl()
         );
     }
@@ -150,9 +164,10 @@ class PhoneNumberInputTest extends TestCase
         Assert::null($phoneInput->getValue());
         Assert::same(null, $phoneInput->getError());
         Assert::same(
-            '<input type="tel" name="phone" id="frm-phone" data-nette-rules=\''
-            . '[{"op":"optional"},{"op":"Nepada\\\\PhoneNumberInput\\\\Validator::validatePhoneNumber","msg":"Please enter a valid phone number."}]'
-            . '\'>',
+            '<input type="tel" name="phone" id="frm-phone" data-nette-rules=\'['
+            . ($this->isNette24 ? '{"op":"optional"},' : '')
+            . '{"op":"Nepada\\\\PhoneNumberInput\\\\Validator::validatePhoneNumber","msg":"Please enter a valid phone number."}'
+            . ']\'>',
             (string) $phoneInput->getControl()
         );
     }
@@ -172,9 +187,10 @@ class PhoneNumberInputTest extends TestCase
         Assert::null($phoneInput->getValue());
         Assert::same(null, $phoneInput->getError());
         Assert::same(
-            '<input type="tel" name="phone" id="frm-phone" data-nette-rules=\''
-            . '[{"op":"optional"},{"op":"Nepada\\\\PhoneNumberInput\\\\Validator::validatePhoneNumber","msg":"Please enter a valid phone number."}]'
-            . '\' data-nette-empty-value="+420" value="+420">',
+            '<input type="tel" name="phone" id="frm-phone" data-nette-rules=\'['
+            . ($this->isNette24 ? '{"op":"optional"},' : '')
+            . '{"op":"Nepada\\\\PhoneNumberInput\\\\Validator::validatePhoneNumber","msg":"Please enter a valid phone number."}'
+            . ']\' data-nette-empty-value="+420" value="+420">',
             (string) $phoneInput->getControl()
         );
     }
@@ -194,9 +210,10 @@ class PhoneNumberInputTest extends TestCase
         Assert::same('+420212345678', (string) $phoneInput->getValue());
         Assert::same(null, $phoneInput->getError());
         Assert::same(
-            '<input type="tel" name="phone" id="frm-phone" data-nette-rules=\''
-            . '[{"op":"optional"},{"op":"Nepada\\\\PhoneNumberInput\\\\Validator::validatePhoneNumber","msg":"Please enter a valid phone number."}]'
-            . '\' value="+420 212 34 56 78">',
+            '<input type="tel" name="phone" id="frm-phone" data-nette-rules=\'['
+            . ($this->isNette24 ? '{"op":"optional"},' : '')
+            . '{"op":"Nepada\\\\PhoneNumberInput\\\\Validator::validatePhoneNumber","msg":"Please enter a valid phone number."}'
+            . ']\' value="+420 212 34 56 78">',
             (string) $phoneInput->getControl()
         );
     }
