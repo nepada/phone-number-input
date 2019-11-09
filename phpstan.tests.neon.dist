@@ -24,6 +24,3 @@ parameters:
         -
             message: '#Call to an undefined method Nette\\Forms\\Form::addPhoneNumber\(\)#'
             path: %currentWorkingDirectory%/tests/Bridges/PhoneNumberInputDI/PhoneNumberInputExtensionTest.phpt
-        - # Nette 2.4 compatibility
-            message: "#Call to function method_exists\\(\\) with 'Nette\\\\\\\\Forms\\\\\\\\Rules' and '.*' will always evaluate to (false|true)\\.#"
-            path: %currentWorkingDirectory%/tests/PhoneNumberInput/PhoneNumberInputTest.phpt
