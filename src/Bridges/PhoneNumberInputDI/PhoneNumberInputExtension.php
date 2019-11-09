@@ -4,15 +4,16 @@ declare(strict_types = 1);
 namespace Nepada\Bridges\PhoneNumberInputDI;
 
 use Nepada\Bridges\PhoneNumberInputForms\ExtensionMethodRegistrator;
+use Nette;
 use Nette\DI\CompilerExtension;
 use Nette\PhpGenerator\ClassType;
 
 class PhoneNumberInputExtension extends CompilerExtension
 {
 
-    public function loadConfiguration(): void
+    public function getConfigSchema(): Nette\Schema\Schema
     {
-        $this->validateConfig([]);
+        return Nette\Schema\Expect::structure([]);
     }
 
     public function afterCompile(ClassType $class): void

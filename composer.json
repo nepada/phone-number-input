@@ -30,6 +30,7 @@
 
         "nette/bootstrap": "^3.0@dev",
         "nette/di": "^3.0@dev",
+        "nette/schema": "^1.0@dev",
         "nette/http": "^3.0@dev"
     },
     "autoload": {
