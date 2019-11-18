@@ -70,7 +70,7 @@ final class Validator
             $value = $value->__toString();
         }
 
-        if (!is_string($value)) {
+        if (! is_string($value)) {
             return null;
         }
 

@@ -70,7 +70,7 @@ class PhoneNumberInput extends TextInput
 
         if (is_string($value)) {
             $value = PhoneNumber::parse($value, $this->defaultRegionCode);
-        } elseif (!$value instanceof PhoneNumber) {
+        } elseif (! $value instanceof PhoneNumber) {
             throw new \InvalidArgumentException(
                 sprintf(
                     'Value must be null, PhoneNumber instance, or string with a valid phone number, %s given in field "%s".',
