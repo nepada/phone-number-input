@@ -21,8 +21,7 @@ class PhoneNumberInput extends TextInput
 
     private const PHONE_NUMBER_REGEX = '[\s\d()\[\]~/.+-]+';
 
-    /** @var string|null */
-    private $defaultRegionCode;
+    private ?string $defaultRegionCode = null;
 
     /**
      * @param string|Html|null $label
