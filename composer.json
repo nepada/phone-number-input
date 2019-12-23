@@ -15,7 +15,7 @@
         }
     ],
     "require": {
-        "php": ">=7.1.0",
+        "php": ">=7.4.0",
         "brick/phonenumber": "^0.2.1@dev",
         "giggsey/libphonenumber-for-php": "^8.9@dev",
         "nette/utils": "^3.0@dev",
