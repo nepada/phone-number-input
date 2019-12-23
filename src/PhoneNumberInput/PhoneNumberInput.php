@@ -24,7 +24,7 @@ class PhoneNumberInput extends TextInput
     private ?string $defaultRegionCode = null;
 
     /**
-     * @param string|Html|null $label
+     * @param string|Html<mixed>|null $label
      * @param string|null $defaultRegionCode
      */
     public function __construct($label = null, ?string $defaultRegionCode = null)
@@ -120,6 +120,9 @@ class PhoneNumberInput extends TextInput
         return $this->rawValue !== '' && $this->rawValue !== Strings::trim($this->translate($this->emptyValue));
     }
 
+    /**
+     * @return Html<mixed>
+     */
     public function getControl(): Html
     {
         $control = parent::getControl();

@@ -1,13 +1,13 @@
 includes:
-    - phar://phpstan.phar/vendor/pepakriz/phpstan-exception-rules/extension.neon
-    - phar://phpstan.phar/vendor/phpstan/phpstan-nette/extension.neon
-    - phar://phpstan.phar/vendor/phpstan/phpstan-nette/rules.neon
-    - phar://phpstan.phar/vendor/phpstan/phpstan-strict-rules/rules.neon
+    - vendor/phpstan/phpstan-strict-rules/rules.neon
+    - vendor/pepakriz/phpstan-exception-rules/extension.neon
+    - vendor/phpstan/phpstan-nette/extension.neon
+    - vendor/phpstan/phpstan-nette/rules.neon
 
 parameters:
     level: max
     paths:
-        - %currentWorkingDirectory%/src
+        - src
 
     exceptionRules:
         uncheckedExceptions:
@@ -16,6 +16,6 @@ parameters:
             - Nette\InvalidStateException
 
     ignoreErrors:
-        -
-            message: '#Parameter \#1 \$value \(Brick\\PhoneNumber\\PhoneNumber\|string\|null\) of method Nepada\\PhoneNumberInput\\PhoneNumberInput::setDefaultValue\(\) should be contravariant with parameter#' # intended
-            path: %currentWorkingDirectory%/src/PhoneNumberInput/PhoneNumberInput.php
+        - # intended
+            message: '#Parameter \#1 \$value \(Brick\\PhoneNumber\\PhoneNumber\|string\|null\) of method Nepada\\PhoneNumberInput\\PhoneNumberInput::setDefaultValue\(\) should be contravariant with parameter#'
+            path: src/PhoneNumberInput/PhoneNumberInput.php
