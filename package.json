@@ -20,7 +20,7 @@
     },
     "bugs": "https://github.com/nepada/phone-number-input/issues",
     "dependencies": {
-        "libphonenumber-js": "^1.7.30",
+        "libphonenumber-js": "^1.7.48",
         "nette-forms": "^3.0.3"
     },
     "devDependencies": {
