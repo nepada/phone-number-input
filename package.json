@@ -24,9 +24,9 @@
         "nette-forms": "^3.0.3"
     },
     "devDependencies": {
-        "@babel/cli": "^7.7.7",
-        "@babel/core": "^7.7.7",
-        "@babel/preset-env": "^7.7.7",
+        "@babel/cli": "^7.8.4",
+        "@babel/core": "^7.8.7",
+        "@babel/preset-env": "^7.8.7",
         "@nepada/eslint-config": "^1.4.0",
         "@rollup/plugin-commonjs": "^11.0.0",
         "@rollup/plugin-json": "^4.0.1",
