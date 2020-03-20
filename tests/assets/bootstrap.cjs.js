@@ -1,5 +1,5 @@
 import metadata from 'libphonenumber-js/metadata.full';
-import init from '../../dist/commonjs/index.cjs';
+import init from '../../dist/commonjs';
 import NetteFactory from './netteFactory';
 
 const Nette = NetteFactory();

@@ -6,7 +6,7 @@ import nodeResolve from '@rollup/plugin-node-resolve';
 
 
 export default {
-    input: 'src/assets/index.cjs.js',
+    input: 'src/assets/index.js',
     external: (id) => {
         return /^libphonenumber-js/u.test(id);
     },

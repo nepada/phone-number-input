@@ -9,7 +9,7 @@ import {terser} from 'rollup-plugin-terser';
 
 export default [
     {
-        input: 'src/assets/index.umd.js',
+        input: 'src/assets/phone-number-input.js',
         external: [
             'libphonenumber-js',
             'nette-forms',
@@ -36,7 +36,7 @@ export default [
         ],
     },
     {
-        input: 'src/assets/index.umd.js',
+        input: 'src/assets/phone-number-input.js',
         external: [
             'libphonenumber-js',
             'nette-forms',
