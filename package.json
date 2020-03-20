@@ -1,6 +1,6 @@
 {
     "name": "@nepada/phone-number-input",
-    "version": "0.1.0",
+    "version": "1.0.0",
     "description": "Client side script of Phone number form input for Nette forms.",
     "keywords": [
         "phone number",
