@@ -74,8 +74,8 @@ class PhoneNumberInput extends TextInput
                 sprintf(
                     'Value must be null, PhoneNumber instance, or string with a valid phone number, %s given in field "%s".',
                     gettype($value),
-                    $this->name
-                )
+                    $this->name,
+                ),
             );
         }
 

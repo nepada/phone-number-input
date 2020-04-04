@@ -42,7 +42,7 @@ class ValidatorTest extends TestCase
                 'isValid' => false,
             ],
             [
-                'value' => 3.1415,
+                'value' => 3.14,
                 'isValid' => false,
             ],
             [
@@ -98,7 +98,7 @@ class ValidatorTest extends TestCase
                 'isValid' => false,
             ],
             [
-                'value' => 3.1415,
+                'value' => 3.14,
                 'isValid' => false,
             ],
             [

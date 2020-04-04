@@ -48,7 +48,7 @@ class PhoneNumberInputTest extends TestCase
             '<input type="tel" name="phone" pattern="' . self::PATTERN . '" id="frm-phone" '
             . 'data-nette-rules=\'[' . self::RULE_PATTERN . ',' . self::RULE_VALID . ']\' '
             . 'value="212 345 678" data-default-region-code="CZ">',
-            (string) $phoneInput->getControl()
+            (string) $phoneInput->getControl(),
         );
 
         $phoneInput->setValue('+12015550123');
@@ -56,7 +56,7 @@ class PhoneNumberInputTest extends TestCase
             '<input type="tel" name="phone" pattern="' . self::PATTERN . '" id="frm-phone" '
             . 'data-nette-rules=\'[' . self::RULE_PATTERN . ',' . self::RULE_VALID . ']\' '
             . 'value="+1 201-555-0123" data-default-region-code="CZ">',
-            (string) $phoneInput->getControl()
+            (string) $phoneInput->getControl(),
         );
     }
 
@@ -72,7 +72,7 @@ class PhoneNumberInputTest extends TestCase
             '<input type="tel" name="phone" pattern="' . self::PATTERN . '" id="frm-phone" '
             . 'data-nette-rules=\'[' . self::RULE_PATTERN . ',' . self::RULE_VALID . ']\' '
             . 'value="+420 212 345 678">',
-            (string) $phoneInput->getControl()
+            (string) $phoneInput->getControl(),
         );
 
         $phoneInput->setValue('+12015550123');
@@ -80,7 +80,7 @@ class PhoneNumberInputTest extends TestCase
             '<input type="tel" name="phone" pattern="' . self::PATTERN . '" id="frm-phone" '
             . 'data-nette-rules=\'[' . self::RULE_PATTERN . ',' . self::RULE_VALID . ']\' '
             . 'value="+1 201-555-0123">',
-            (string) $phoneInput->getControl()
+            (string) $phoneInput->getControl(),
         );
     }
 
@@ -126,7 +126,7 @@ class PhoneNumberInputTest extends TestCase
             function () use ($input): void {
                 $input->setValue('123');
             },
-            PhoneNumberParseException::class
+            PhoneNumberParseException::class,
         );
     }
 
@@ -137,7 +137,7 @@ class PhoneNumberInputTest extends TestCase
             function () use ($input): void {
                 $input->setValue(42);
             },
-            \InvalidArgumentException::class
+            \InvalidArgumentException::class,
         );
     }
 
@@ -157,7 +157,7 @@ class PhoneNumberInputTest extends TestCase
         Assert::same(
             '<input type="tel" name="phone" pattern="' . self::PATTERN . '" id="frm-phone" '
             . 'data-nette-rules=\'[' . self::RULE_PATTERN . ',' . self::RULE_VALID . ']\'>',
-            (string) $phoneInput->getControl()
+            (string) $phoneInput->getControl(),
         );
     }
 
@@ -179,7 +179,7 @@ class PhoneNumberInputTest extends TestCase
             '<input type="tel" name="phone" pattern="' . self::PATTERN . '" id="frm-phone" '
             . 'data-nette-rules=\'[' . self::RULE_PATTERN . ',' . self::RULE_VALID . ']\' '
             . 'data-nette-empty-value="+420" value="+420">',
-            (string) $phoneInput->getControl()
+            (string) $phoneInput->getControl(),
         );
     }
 
@@ -201,7 +201,7 @@ class PhoneNumberInputTest extends TestCase
             '<input type="tel" name="phone" pattern="' . self::PATTERN . '" id="frm-phone" '
             . 'data-nette-rules=\'[' . self::RULE_PATTERN . ',' . self::RULE_VALID . ']\' '
             . 'value="+420 212 34 56 78">',
-            (string) $phoneInput->getControl()
+            (string) $phoneInput->getControl(),
         );
     }
 
@@ -223,7 +223,7 @@ class PhoneNumberInputTest extends TestCase
             '<input type="tel" name="phone" pattern="' . self::PATTERN . '" id="frm-phone" required '
             . 'data-nette-rules=\'[' . self::RULE_REQUIRED . self::RULE_PATTERN . ',' . self::RULE_VALID . ']\' '
             . 'value="123">',
-            (string) $phoneInput->getControl()
+            (string) $phoneInput->getControl(),
         );
     }
 

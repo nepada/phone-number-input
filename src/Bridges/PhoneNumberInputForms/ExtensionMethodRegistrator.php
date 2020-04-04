@@ -16,9 +16,7 @@ class ExtensionMethodRegistrator
     {
         Container::extensionMethod(
             'addPhoneNumber',
-            function (Container $container, $name, $label = null, ?string $defaultRegionCode = null): PhoneNumberInput {
-                return $container[$name] = new PhoneNumberInput($label, $defaultRegionCode);
-            }
+            fn (Container $container, $name, $label = null, ?string $defaultRegionCode = null): PhoneNumberInput => $container[$name] = new PhoneNumberInput($label, $defaultRegionCode),
         );
     }
 
