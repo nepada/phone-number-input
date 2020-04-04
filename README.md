@@ -28,7 +28,7 @@ It will register extension method `addPhoneNumber($name, $label = null, ?string 
 
 ### Option B: use trait in your base form/container class
 
-You can also use `TPhoneNumberInput` trait in your base form/container class to add method `addPhoneNumber($name, $label = null, ?string $defaultRegionCode = null): PhoneNumberInput`.
+You can also use `PhoneNumberInputMixin` trait in your base form/container class to add method `addPhoneNumber($name, $label = null, ?string $defaultRegionCode = null): PhoneNumberInput`.
 
 Example:
 
@@ -37,7 +37,7 @@ Example:
 trait TFormControls
 {
 
-    use Nepada\Bridges\PhoneNumberInputForms\TPhoneNumberInput;
+    use Nepada\Bridges\PhoneNumberInputForms\PhoneNumberInputMixin;
 
     public function addContainer($name)
     {

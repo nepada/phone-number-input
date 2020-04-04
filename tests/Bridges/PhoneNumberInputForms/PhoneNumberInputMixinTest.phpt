@@ -13,7 +13,7 @@ require_once __DIR__ . '/../../bootstrap.php';
 /**
  * @testCase
  */
-class TPhoneNumberInputTest extends TestCase
+class PhoneNumberInputMixinTest extends TestCase
 {
 
     public function testInternationalPhoneNumberInput(): void
@@ -38,4 +38,4 @@ class TPhoneNumberInputTest extends TestCase
 
 }
 
-(new TPhoneNumberInputTest())->run();
+(new PhoneNumberInputMixinTest())->run();
