@@ -34,7 +34,7 @@ Example:
 
 ```php
 
-trait TFormControls
+trait FormControls
 {
 
     use Nepada\Bridges\PhoneNumberInputForms\PhoneNumberInputMixin;
@@ -54,14 +54,14 @@ trait TFormControls
 class Container extends Nette\Forms\Container
 {
 
-    use TFormControls;
+    use FormControls;
 
 }
 
 class Form extends Nette\Forms\Form
 {
 
-    use TFormControls;
+    use FormControls;
 
 }
 
