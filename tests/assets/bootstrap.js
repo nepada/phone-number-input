@@ -3,8 +3,8 @@ import NetteEsm from './bootstrap.esm';
 import NetteUmd from './bootstrap.umd';
 
 const testInstances = [
-    ['src/assets/index.esm.js', NetteEsm],
-    ['dist/commonjs/index.cjs.js', NetteCjs],
+    ['src/assets/index.js', NetteEsm],
+    ['dist/commonjs/index.js', NetteCjs],
     ['dist/phone-number-input.js', NetteUmd],
 ];
 
