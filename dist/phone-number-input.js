@@ -1,10 +1,12 @@
 (function (global, factory) {
     typeof exports === 'object' && typeof module !== 'undefined' ? factory(require('nette-forms'), require('libphonenumber-js')) :
     typeof define === 'function' && define.amd ? define(['nette-forms', 'libphonenumber-js'], factory) :
-    (global = global || self, factory(global.Nette, global.libphonenumber));
+    (global = typeof globalThis !== 'undefined' ? globalThis : global || self, factory(global.Nette, global.libphonenumber));
 }(this, (function (Nette, libphonenumberJs) { 'use strict';
 
-    Nette = Nette && Nette.hasOwnProperty('default') ? Nette['default'] : Nette;
+    function _interopDefaultLegacy (e) { return e && typeof e === 'object' && 'default' in e ? e : { 'default': e }; }
+
+    var Nette__default = /*#__PURE__*/_interopDefaultLegacy(Nette);
 
     var bindToNetteForms = (function (Nette, parsePhoneNumber) {
       Nette.getPhoneNumber = function (element, value) {
@@ -33,7 +35,7 @@
       };
     });
 
-    bindToNetteForms(Nette, libphonenumberJs.parsePhoneNumberFromString);
+    bindToNetteForms(Nette__default['default'], libphonenumberJs.parsePhoneNumberFromString);
 
 })));
 //# sourceMappingURL=phone-number-input.js.map
