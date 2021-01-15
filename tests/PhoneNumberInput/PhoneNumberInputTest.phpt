@@ -143,9 +143,8 @@ class PhoneNumberInputTest extends TestCase
 
     public function testNoDataSubmitted(): void
     {
-        $_SERVER['REQUEST_METHOD'] = 'POST';
-        $_FILES = [];
-        $_POST = ['phone' => ''];
+        $this->resetHttpGlobalVariables();
+        $_POST['phone'] = '';
 
         $form = new Form();
         $phoneInput = new PhoneNumberInput();
@@ -163,9 +162,8 @@ class PhoneNumberInputTest extends TestCase
 
     public function testEmptyValueSubmitted(): void
     {
-        $_SERVER['REQUEST_METHOD'] = 'POST';
-        $_FILES = [];
-        $_POST = ['phone' => '+420'];
+        $this->resetHttpGlobalVariables();
+        $_POST['phone'] = '+420';
 
         $form = new Form();
         $phoneInput = new PhoneNumberInput();
@@ -185,9 +183,8 @@ class PhoneNumberInputTest extends TestCase
 
     public function testValidDataSubmitted(): void
     {
-        $_SERVER['REQUEST_METHOD'] = 'POST';
-        $_FILES = [];
-        $_POST = ['phone' => '+420 212 34 56 78'];
+        $this->resetHttpGlobalVariables();
+        $_POST['phone'] = '+420 212 34 56 78';
 
         $form = new Form();
         $phoneInput = new PhoneNumberInput();
@@ -207,9 +204,8 @@ class PhoneNumberInputTest extends TestCase
 
     public function testInvalidDataSubmitted(): void
     {
-        $_SERVER['REQUEST_METHOD'] = 'POST';
-        $_FILES = [];
-        $_POST = ['phone' => '123'];
+        $this->resetHttpGlobalVariables();
+        $_POST['phone'] = '123';
 
         $form = new Form();
         $phoneInput = new PhoneNumberInput();
@@ -225,6 +221,15 @@ class PhoneNumberInputTest extends TestCase
             . 'value="123">',
             (string) $phoneInput->getControl(),
         );
+    }
+
+    private function resetHttpGlobalVariables(): void
+    {
+        $_SERVER['REQUEST_METHOD'] = 'POST';
+        $_FILES = [];
+        $_COOKIE['_nss'] = '1';
+        $_POST = [];
+        $_GET = [];
     }
 
 }
