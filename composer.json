@@ -21,7 +21,7 @@
         "nette/forms": "^3.0@dev"
     },
     "require-dev": {
-        "nette/tester": "^v2.3.4",
+        "nette/tester": "^v2.3.5",
         "mockery/mockery": "^1.4.2",
         "phpstan/phpstan": "^0.12.78",
         "phpstan/phpstan-strict-rules": "^0.12.9",
