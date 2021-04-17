@@ -146,7 +146,7 @@ class PhoneNumberInputTest extends TestCase
         $this->resetHttpGlobalVariables();
         $_POST['phone'] = '';
 
-        $form = new Form();
+        $form = $this->createForm();
         $phoneInput = new PhoneNumberInput();
         $form['phone'] = $phoneInput;
         $form->fireEvents();
@@ -165,7 +165,7 @@ class PhoneNumberInputTest extends TestCase
         $this->resetHttpGlobalVariables();
         $_POST['phone'] = '+420';
 
-        $form = new Form();
+        $form = $this->createForm();
         $phoneInput = new PhoneNumberInput();
         $form['phone'] = $phoneInput;
         $phoneInput->setEmptyValue('+420');
@@ -186,7 +186,7 @@ class PhoneNumberInputTest extends TestCase
         $this->resetHttpGlobalVariables();
         $_POST['phone'] = '+420 212 34 56 78';
 
-        $form = new Form();
+        $form = $this->createForm();
         $phoneInput = new PhoneNumberInput();
         $form['phone'] = $phoneInput;
         $form->fireEvents();
@@ -207,7 +207,7 @@ class PhoneNumberInputTest extends TestCase
         $this->resetHttpGlobalVariables();
         $_POST['phone'] = '123';
 
-        $form = new Form();
+        $form = $this->createForm();
         $phoneInput = new PhoneNumberInput();
         $form['phone'] = $phoneInput;
         $phoneInput->setRequired('true');
@@ -230,6 +230,14 @@ class PhoneNumberInputTest extends TestCase
         $_COOKIE['_nss'] = '1';
         $_POST = [];
         $_GET = [];
+    }
+
+    private function createForm(): Form
+    {
+        $form = new Form();
+        $form->onSubmit[] = function (): void {
+        };
+        return $form;
     }
 
 }
