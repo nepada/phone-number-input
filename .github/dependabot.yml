@@ -14,6 +14,8 @@ updates:
       - dependency-type: "development"
     ignore:
       - dependency-name: "nette/bootstrap"
+      - dependency-name: "nette/component-model"
       - dependency-name: "nette/di"
       - dependency-name: "nette/schema"
       - dependency-name: "nette/http"
+      - dependency-name: "giggsey/libphonenumber-for-php"
