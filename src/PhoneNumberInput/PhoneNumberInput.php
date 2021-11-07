@@ -50,6 +50,7 @@ class PhoneNumberInput extends TextInput
 
     public function getValue(): ?PhoneNumber
     {
+        /** @var PhoneNumber|null $value */
         $value = parent::getValue();
         return $value;
     }

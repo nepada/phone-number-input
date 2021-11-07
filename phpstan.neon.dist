@@ -1,6 +1,5 @@
 includes:
     - vendor/phpstan/phpstan-strict-rules/rules.neon
-    - vendor/pepakriz/phpstan-exception-rules/extension.neon
     - vendor/phpstan/phpstan-nette/extension.neon
     - vendor/phpstan/phpstan-nette/rules.neon
     - vendor/spaze/phpstan-disallowed-calls/extension.neon
@@ -12,8 +11,12 @@ parameters:
     paths:
         - src
 
-    exceptionRules:
-        uncheckedExceptions:
+    exceptions:
+        implicitThrows: false
+        check:
+            missingCheckedExceptionInThrows: true
+            tooWideThrowType: true
+        uncheckedExceptionClasses:
             - LogicException
             - Brick\PhoneNumber\PhoneNumberException
             - Nette\InvalidStateException
@@ -21,4 +24,12 @@ parameters:
     ignoreErrors:
         - # intended
             message: '#Parameter \#1 \$value \(Brick\\PhoneNumber\\PhoneNumber\|string\|null\) of method Nepada\\PhoneNumberInput\\PhoneNumberInput::setDefaultValue\(\) should be contravariant with parameter#'
+            path: src/PhoneNumberInput/PhoneNumberInput.php
+        -
+            message: "#^Dead catch \\- Brick\\\\PhoneNumber\\\\PhoneNumberParseException is never thrown in the try block\\.$#"
+            count: 1
+            path: src/PhoneNumberInput/PhoneNumberInput.php
+        -
+            message: "#^Parameter \\#1 \\$s of static method Nette\\\\Utils\\\\Strings\\:\\:trim\\(\\) expects string, mixed given\\.$#"
+            count: 2
             path: src/PhoneNumberInput/PhoneNumberInput.php
