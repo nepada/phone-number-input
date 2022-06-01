@@ -7,7 +7,7 @@ use Brick\PhoneNumber\PhoneNumber;
 use Mockery\MockInterface;
 use Nepada\PhoneNumberInput\Validator;
 use NepadaTests\TestCase;
-use Nette\Forms\IControl;
+use Nette\Forms\Control;
 use Nette\Utils\Html;
 use Tester\Assert;
 
@@ -180,11 +180,11 @@ class ValidatorTest extends TestCase
 
     /**
      * @param mixed $value
-     * @return IControl|MockInterface
+     * @return Control&MockInterface
      */
-    private function mockControl($value): IControl
+    private function mockControl($value): Control
     {
-        $control = \Mockery::mock(IControl::class);
+        $control = \Mockery::mock(Control::class);
         $control->shouldReceive('getValue')->andReturn($value);
         return $control;
     }

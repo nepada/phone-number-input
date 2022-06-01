@@ -6,7 +6,7 @@ namespace Nepada\PhoneNumberInput;
 use Brick\PhoneNumber\PhoneNumber;
 use Brick\PhoneNumber\PhoneNumberParseException;
 use Nette;
-use Nette\Forms\IControl;
+use Nette\Forms\Control;
 
 final class Validator
 {
@@ -17,10 +17,10 @@ final class Validator
      * Does the control value look like a phone number?
      * This performs only basic checks (e.g. of the length of the number). For a more strict validation use `validatePhoneNumberStrict()`.
      *
-     * @param IControl $control
+     * @param Control $control
      * @return bool
      */
-    public static function validatePhoneNumber(IControl $control): bool
+    public static function validatePhoneNumber(Control $control): bool
     {
         $value = self::castToPhoneNumber($control->getValue());
         return $value instanceof PhoneNumber && $value->isPossibleNumber();
@@ -31,10 +31,10 @@ final class Validator
      * This relies on up-to-date metadata in `giggsey/libphonenumber-for-php`.
      * This doesn't verify the number is actually in use, which is impossible to tell by just looking at a number itself.
      *
-     * @param IControl $control
+     * @param Control $control
      * @return bool
      */
-    public static function validatePhoneNumberStrict(IControl $control): bool
+    public static function validatePhoneNumberStrict(Control $control): bool
     {
         $value = self::castToPhoneNumber($control->getValue());
         return $value instanceof PhoneNumber && $value->isValidNumber();
@@ -43,11 +43,11 @@ final class Validator
     /**
      * Does the control value contain a phone number from one of the specified regions?
      *
-     * @param IControl $control
+     * @param Control $control
      * @param string|string[] $allowedRegionCodes
      * @return bool
      */
-    public static function validatePhoneNumberRegion(IControl $control, $allowedRegionCodes): bool
+    public static function validatePhoneNumberRegion(Control $control, $allowedRegionCodes): bool
     {
         $allowedRegionCodes = (array) $allowedRegionCodes;
         $value = self::castToPhoneNumber($control->getValue());
