@@ -1,0 +1,4 @@
+{
+    "transformIgnorePatterns": [],
+    "testEnvironment": "jsdom"
+}

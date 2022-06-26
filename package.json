@@ -51,7 +51,7 @@
     ],
     "scripts": {
         "lint": "eslint src/assets build tests/*.js tests/assets",
-        "test": "jest --config tests/jest.config.js tests/assets/**.test.js",
+        "test": "jest --config tests/jest.config.json tests/assets/**.test.js",
         "clean": "rm -rf ./dist/*",
         "build:cjs": "rollup --config build/rollup.config.cjs.js",
         "build:umd": "rollup --config build/rollup.config.umd.js",
