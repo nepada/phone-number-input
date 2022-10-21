@@ -15,8 +15,8 @@ export default {
         format: 'cjs',
         exports: 'auto',
         sourcemap: true,
+        preserveModules: true,
     },
-    preserveModules: true,
     plugins: [
         nodeResolve(),
         json(),
