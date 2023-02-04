@@ -7,6 +7,7 @@ use Brick\PhoneNumber\PhoneNumber;
 use Brick\PhoneNumber\PhoneNumberParseException;
 use Nette;
 use Nette\Forms\Control;
+use function is_array;
 
 final class Validator
 {
@@ -49,7 +50,7 @@ final class Validator
      */
     public static function validatePhoneNumberRegion(Control $control, $allowedRegionCodes): bool
     {
-        $allowedRegionCodes = (array) $allowedRegionCodes;
+        $allowedRegionCodes = is_array($allowedRegionCodes) ? $allowedRegionCodes : [$allowedRegionCodes];
         $value = self::castToPhoneNumber($control->getValue());
         return $value instanceof PhoneNumber && in_array($value->getRegionCode(), $allowedRegionCodes, true);
     }
