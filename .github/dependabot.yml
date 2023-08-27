@@ -19,3 +19,6 @@ updates:
       - dependency-name: "nette/component-model"
       - dependency-name: "giggsey/libphonenumber-for-php"
       - dependency-name: "nette/http"
+    groups:
+        phpstan:
+            patterns: ["*phpstan*"]
