@@ -9,13 +9,7 @@ use Nette\Utils\Html;
 trait PhoneNumberInputMixin
 {
 
-    /**
-     * @param string|int $name
-     * @param string|Html|null $label
-     * @param string|null $defaultRegionCode
-     * @return PhoneNumberInput
-     */
-    public function addPhoneNumber($name, $label = null, ?string $defaultRegionCode = null): PhoneNumberInput
+    public function addPhoneNumber(string|int $name, string|Html|null $label = null, ?string $defaultRegionCode = null): PhoneNumberInput
     {
         return $this[$name] = new PhoneNumberInput($label, $defaultRegionCode);
     }

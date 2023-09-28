@@ -17,9 +17,6 @@ final class Validator
     /**
      * Does the control value look like a phone number?
      * This performs only basic checks (e.g. of the length of the number). For a more strict validation use `validatePhoneNumberStrict()`.
-     *
-     * @param Control $control
-     * @return bool
      */
     public static function validatePhoneNumber(Control $control): bool
     {
@@ -31,9 +28,6 @@ final class Validator
      * Does the control value match a valid phone number pattern?
      * This relies on up-to-date metadata in `giggsey/libphonenumber-for-php`.
      * This doesn't verify the number is actually in use, which is impossible to tell by just looking at a number itself.
-     *
-     * @param Control $control
-     * @return bool
      */
     public static function validatePhoneNumberStrict(Control $control): bool
     {
@@ -44,22 +38,16 @@ final class Validator
     /**
      * Does the control value contain a phone number from one of the specified regions?
      *
-     * @param Control $control
      * @param string|string[] $allowedRegionCodes
-     * @return bool
      */
-    public static function validatePhoneNumberRegion(Control $control, $allowedRegionCodes): bool
+    public static function validatePhoneNumberRegion(Control $control, string|array $allowedRegionCodes): bool
     {
         $allowedRegionCodes = is_array($allowedRegionCodes) ? $allowedRegionCodes : [$allowedRegionCodes];
         $value = self::castToPhoneNumber($control->getValue());
         return $value instanceof PhoneNumber && in_array($value->getRegionCode(), $allowedRegionCodes, true);
     }
 
-    /**
-     * @param mixed $value
-     * @return PhoneNumber|null
-     */
-    private static function castToPhoneNumber($value): ?PhoneNumber
+    private static function castToPhoneNumber(mixed $value): ?PhoneNumber
     {
         if ($value instanceof PhoneNumber || $value === null) {
             return $value;

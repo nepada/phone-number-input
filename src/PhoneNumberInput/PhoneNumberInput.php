@@ -23,11 +23,7 @@ class PhoneNumberInput extends TextInput
 
     private ?string $defaultRegionCode;
 
-    /**
-     * @param string|Html<mixed>|null $label
-     * @param string|null $defaultRegionCode
-     */
-    public function __construct($label = null, ?string $defaultRegionCode = null)
+    public function __construct(string|Html|null $label = null, ?string $defaultRegionCode = null)
     {
         parent::__construct($label);
         $this->defaultRegionCode = $defaultRegionCode;
@@ -57,10 +53,9 @@ class PhoneNumberInput extends TextInput
 
     /**
      * @internal
-     * @param mixed $value
-     * @return static
+     * @return $this
      */
-    public function setValue($value): self
+    public function setValue(mixed $value): static
     {
         if ($value === null) {
             $this->value = '';
@@ -89,9 +84,9 @@ class PhoneNumberInput extends TextInput
 
     /**
      * @param PhoneNumber|string|null $value
-     * @return static
+     * @return $this
      */
-    public function setDefaultValue($value): self
+    public function setDefaultValue(mixed $value): static
     {
         parent::setDefaultValue($value);
         return $this;
@@ -121,9 +116,6 @@ class PhoneNumberInput extends TextInput
         return $this->rawValue !== '' && $this->rawValue !== Strings::trim($this->translate($this->emptyValue));
     }
 
-    /**
-     * @return Html<mixed>
-     */
     public function getControl(): Html
     {
         $control = parent::getControl();
