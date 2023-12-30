@@ -1,10 +1,8 @@
 import {babel} from '@rollup/plugin-babel';
 import commonjs from '@rollup/plugin-commonjs';
 import json from '@rollup/plugin-json';
-import nodeBuiltins from 'rollup-plugin-node-builtins';
-import nodeGlobals from 'rollup-plugin-node-globals';
 import {nodeResolve} from '@rollup/plugin-node-resolve';
-import {terser} from 'rollup-plugin-terser';
+import rollupTerser from '@rollup/plugin-terser';
 
 
 export default [
@@ -28,8 +26,6 @@ export default [
             nodeResolve(),
             json(),
             commonjs(),
-            nodeBuiltins(),
-            nodeGlobals(),
             babel({
                 babelrc: false,
                 babelHelpers: 'bundled',
@@ -57,14 +53,12 @@ export default [
             nodeResolve(),
             json(),
             commonjs(),
-            nodeBuiltins(),
-            nodeGlobals(),
             babel({
                 babelrc: false,
                 babelHelpers: 'bundled',
                 presets: [['@babel/preset-env', {targets: '> 1%, cover 95%, not dead'}]],
             }),
-            terser(),
+            rollupTerser(),
         ],
     },
 ];
