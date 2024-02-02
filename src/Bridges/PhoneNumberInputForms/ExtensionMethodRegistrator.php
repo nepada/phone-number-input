@@ -6,6 +6,7 @@ namespace Nepada\Bridges\PhoneNumberInputForms;
 use Nepada\PhoneNumberInput\PhoneNumberInput;
 use Nette;
 use Nette\Forms\Container;
+use Nette\Utils\Html;
 
 class ExtensionMethodRegistrator
 {
@@ -16,7 +17,7 @@ class ExtensionMethodRegistrator
     {
         Container::extensionMethod(
             'addPhoneNumber',
-            fn (Container $container, $name, $label = null, ?string $defaultRegionCode = null): PhoneNumberInput => $container[$name] = new PhoneNumberInput($label, $defaultRegionCode),
+            fn (Container $container, string|int $name, string|Html|null $label = null, ?string $defaultRegionCode = null): PhoneNumberInput => $container[(string) $name] = new PhoneNumberInput($label, $defaultRegionCode),
         );
     }
 
