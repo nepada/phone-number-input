@@ -1,7 +1,7 @@
 import Nette from 'nette-forms';
 
 export default () => {
-    const clone = Object.assign({}, Nette);
-    clone.validators = Object.assign({}, clone.validators);
+    const clone = Object.assign(Object.create(Object.getPrototypeOf(Nette)), Nette);
+    clone.validators = Object.assign(Object.create(Object.getPrototypeOf(clone.validators)), clone.validators);
     return clone;
 };
