@@ -29,6 +29,7 @@ class PhoneNumberInput extends TextInput
         $this->defaultRegionCode = $defaultRegionCode;
         $this->setHtmlType('tel');
         $this->setNullable();
+        /** @var string $invalidValueErrorMessage */
         $invalidValueErrorMessage = NetteFormsValidator::$messages[self::VALID] ?? 'Please enter a valid phone number.';
         $this->addRule(Form::PATTERN, $invalidValueErrorMessage, self::PHONE_NUMBER_REGEX);
         $this->addRule(self::VALID, $invalidValueErrorMessage);

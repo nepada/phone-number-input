@@ -30,7 +30,7 @@ class ValidatorTest extends TestCase
     }
 
     /**
-     * @return mixed[]
+     * @return list<mixed[]>
      */
     protected function getDataForValidatePhoneNumber(): array
     {
@@ -84,7 +84,7 @@ class ValidatorTest extends TestCase
     }
 
     /**
-     * @return mixed[]
+     * @return list<mixed[]>
      */
     protected function getDataForValidatePhoneNumberStrict(): array
     {
@@ -139,7 +139,7 @@ class ValidatorTest extends TestCase
     }
 
     /**
-     * @return mixed[]
+     * @return list<mixed[]>
      */
     protected function getDataForValidatePhoneNumberRegion(): array
     {

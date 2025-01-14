@@ -26,6 +26,16 @@ parameters:
             - Nette\InvalidStateException
 
     ignoreErrors:
+        - # covered by tests
+            message: '#^Trait Nepada\\Bridges\\PhoneNumberInputForms\\PhoneNumberInputMixin is used zero times and is not analysed\.$#'
+            identifier: trait.unused
+            count: 1
+            path: src/Bridges/PhoneNumberInputForms/PhoneNumberInputMixin.php
+        - # covered by tests
+            message: '#^Trait Nepada\\Bridges\\PhoneNumberInputForms\\TPhoneNumberInput is used zero times and is not analysed\.$#'
+            identifier: trait.unused
+            count: 1
+            path: src/Bridges/PhoneNumberInputForms/TPhoneNumberInput.php
         - # intended
             message: '#Parameter \#1 \$value \(Brick\\PhoneNumber\\PhoneNumber\|string\|null\) of method Nepada\\PhoneNumberInput\\PhoneNumberInput::setDefaultValue\(\) should be contravariant with parameter#'
             path: src/PhoneNumberInput/PhoneNumberInput.php
