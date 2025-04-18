@@ -16,7 +16,7 @@
     ],
     "require": {
         "php": ">=8.1.0 <8.5",
-        "brick/phonenumber": "^0.2.2@dev || ^0.3@dev || ^0.4@dev || ^0.5@dev || ^0.6@dev",
+        "brick/phonenumber": "^0.2.2@dev || ^0.3@dev || ^0.4@dev || ^0.5@dev || ^0.6@dev || ^0.7@dev || ^0.8@dev",
         "nette/utils": "^3.2@dev || ^4.0@dev",
         "nette/forms": "^3.1@dev"
     },
