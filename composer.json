@@ -36,9 +36,9 @@
         "nette/bootstrap": ">=3.1@dev",
         "nette/component-model": ">=3.0.2",
         "giggsey/libphonenumber-for-php": ">=8.13.47",
-        "nette/http": ">=3.1@dev",
         "nette/neon": ">=3.3.4@dev",
-        "nette/robot-loader": "*@dev"
+        "nette/schema": "*@dev",
+        "nette/http": "*@dev"
     },
     "autoload": {
         "psr-4": {

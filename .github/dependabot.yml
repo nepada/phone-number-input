@@ -17,9 +17,9 @@ updates:
       - dependency-name: "nette/bootstrap"
       - dependency-name: "nette/component-model"
       - dependency-name: "giggsey/libphonenumber-for-php"
-      - dependency-name: "nette/http"
+      - dependency-name: "nette/schema"
       - dependency-name: "nette/neon"
-      - dependency-name: "nette/robot-loader"
+      - dependency-name: "nette/http"
     groups:
         phpstan:
             patterns: ["*phpstan*"]
