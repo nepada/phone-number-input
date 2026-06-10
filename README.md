@@ -92,7 +92,7 @@ You can add a more strict validation rule `PhoneNumberInput::VALID_STRICT`.
 This rule validates the content against regular expressions from metadata database.
 
 **Warning:** you must make sure you've got up-to-date metadata library, otherwise you risk running into false positives and false negatives during the validation.
-The metadata are provided by [giggsey/libphonenumber-for-php](https://github.com/giggsey/libphonenumber-for-php) for backend validation and [libphonenumber-js](https://yarnpkg.com/package/libphonenumber-js) for client side validation.
+The metadata are provided by [giggsey/libphonenumber-for-php](https://github.com/giggsey/libphonenumber-for-php) for backend validation and [libphonenumber-js](https://www.npmjs.com/package/libphonenumber-js) for client side validation.
 
 #### Region validation
 
@@ -112,7 +112,7 @@ When creating the input you may specify default region code (ISO 3166-1 alpha-2 
 
 ### Client side validation
 
-This package comes with client side validation built on top of [libphonenumber-js](https://yarnpkg.com/package/libphonenumber-js). It is published as npm package [@nepada/phone-number-input](https://yarnpkg.com/package/@nepada/phone-number-input).
+This package comes with client side validation built on top of [libphonenumber-js](https://www.npmjs.com/package/libphonenumber-js). It is published as npm package [@nepada/phone-number-input](https://www.npmjs.com/package/@nepada/phone-number-input).
 
 `libphonenumber-js` provides several [different metadata sets](https://gitlab.com/catamphetamine/libphonenumber-js#customizing-metadata). You should choose the one based on your validation needs (e.g. if you don't need strict validation, go with `min`), or build your own custom metadata set.
 
