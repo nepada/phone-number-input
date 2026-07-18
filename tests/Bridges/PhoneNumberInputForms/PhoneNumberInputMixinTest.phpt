@@ -21,7 +21,7 @@ class PhoneNumberInputMixinTest extends TestCase
         $form = new TestForm();
         $input = $form->addPhoneNumber('test', 'Phone');
         Assert::type(PhoneNumberInput::class, $input);
-        Assert::same('Phone', $input->caption);
+        Assert::same('Phone', $input->getCaption());
         Assert::same(null, $input->getDefaultRegionCode());
         Assert::same($input, $form['test']);
     }
@@ -31,7 +31,7 @@ class PhoneNumberInputMixinTest extends TestCase
         $form = new TestForm();
         $input = $form->addPhoneNumber('test', 'CZ phone', 'CZ');
         Assert::type(PhoneNumberInput::class, $input);
-        Assert::same('CZ phone', $input->caption);
+        Assert::same('CZ phone', $input->getCaption());
         Assert::same('CZ', $input->getDefaultRegionCode());
         Assert::same($input, $form['test']);
     }
