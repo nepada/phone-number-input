@@ -40,7 +40,10 @@ final class Validator
      *
      * @param string|string[] $allowedRegionCodes
      */
-    public static function validatePhoneNumberRegion(Control $control, string|array $allowedRegionCodes): bool
+    public static function validatePhoneNumberRegion(
+        Control $control,
+        string|array $allowedRegionCodes,
+    ): bool
     {
         $allowedRegionCodes = is_array($allowedRegionCodes) ? $allowedRegionCodes : [$allowedRegionCodes];
         $value = self::castToPhoneNumber($control->getValue());

@@ -21,12 +21,12 @@ class PhoneNumberInput extends TextInput
 
     private const PHONE_NUMBER_REGEX = '[\s\d()\[\]~/.+-]+';
 
-    private ?string $defaultRegionCode;
-
-    public function __construct(string|Html|null $label = null, ?string $defaultRegionCode = null)
+    public function __construct(
+        string|Html|null $label = null,
+        private ?string $defaultRegionCode = null,
+    )
     {
         parent::__construct($label);
-        $this->defaultRegionCode = $defaultRegionCode;
         $this->setHtmlType('tel');
         $this->setNullable();
         /** @var string $invalidValueErrorMessage */

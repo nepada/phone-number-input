@@ -23,7 +23,10 @@ class ValidatorTest extends TestCase
     /**
      * @dataProvider getDataForValidatePhoneNumber
      */
-    public function testValidatePhoneNumber(mixed $value, bool $isValid): void
+    public function testValidatePhoneNumber(
+        mixed $value,
+        bool $isValid,
+    ): void
     {
         $control = $this->mockControl($value);
         Assert::same($isValid, Validator::validatePhoneNumber($control));
@@ -77,7 +80,10 @@ class ValidatorTest extends TestCase
     /**
      * @dataProvider getDataForValidatePhoneNumberStrict
      */
-    public function testValidatePhoneNumberStrict(mixed $value, bool $isValid): void
+    public function testValidatePhoneNumberStrict(
+        mixed $value,
+        bool $isValid,
+    ): void
     {
         $control = $this->mockControl($value);
         Assert::same($isValid, Validator::validatePhoneNumberStrict($control));
@@ -132,7 +138,11 @@ class ValidatorTest extends TestCase
      * @dataProvider getDataForValidatePhoneNumberRegion
      * @param string|string[] $regions
      */
-    public function testValidatePhoneNumberRegion(mixed $value, string|array $regions, bool $isValid): void
+    public function testValidatePhoneNumberRegion(
+        mixed $value,
+        string|array $regions,
+        bool $isValid,
+    ): void
     {
         $control = $this->mockControl($value);
         Assert::same($isValid, Validator::validatePhoneNumberRegion($control, $regions));
